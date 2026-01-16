@@ -18,6 +18,9 @@ function isRequired(value) {
  * @returns {boolean} True if the email is valid
  */
 function isValidEmail(email) {
+  if (email === null || email === undefined) {
+    return false;
+  }
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
 }
@@ -29,7 +32,10 @@ function isValidEmail(email) {
  * @returns {boolean} True if the value meets the minimum length
  */
 function hasMinLength(value, minLength) {
-  return value && value.length >= minLength;
+  if (value === null || value === undefined) {
+    return false;
+  }
+  return value.length >= minLength;
 }
 
 /**
